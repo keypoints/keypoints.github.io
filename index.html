@@ -12,14 +12,15 @@
   </style>
 </head>
 <body>
-  Results generated from frame-by-frame predictions on each video frame with no temporal constraints.
+  This is a frame-by-frame keypoint prediction on each animation frame. No temporal information is used.
   <h1>Chairs</h1>
+
   <img src="chairs.gif" width="800"><br>
   <h1>Planes</h1>
-  Notice failure cases on the bottom right where the orientation network fails to predict the correct orientaiton.
+  Notice failure cases in the bottom row where the orientation network fails to predict the correct orientaiton of planes with unusual shapes.  
   <img src="planes.gif" width="800"><br>
   <h1>Planes</h1>
-  Notice failure cases on the bottom row. The second car is too dark, and the third car looks too symmetric that the predicted orientation is sometimes reversed.
+  Notice failure cases on the bottom row: The second car is mostly black which is the same as the background. The third car looks very symmetric that the predicted orientation is sometimes reversed.
   <img src="cars.gif" width="800"><br>
 </body>
 </html>
