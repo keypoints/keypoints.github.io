@@ -7,20 +7,20 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="1561.2">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-  This is a frame-by-frame keypoint prediction on each animation frame. No temporal information is used.
   <h1>Chairs</h1>
-
-  <img src="chairs.gif" width="800"><br>
+  Test chairs from ShapeNet. This is a frame-by-frame keypoint prediction on each animation frame. No temporal information is used.<br>
+  <img src="chairs.gif" width="900"><br>
   <h1>Planes</h1>
-  Notice failure cases in the bottom row where the orientation network fails to predict the correct orientaiton of planes with unusual shapes.  
-  <img src="planes.gif" width="800"><br>
-  <h1>Planes</h1>
-  Notice failure cases on the bottom row: The second car is mostly black which is the same as the background. The third car looks very symmetric that the predicted orientation is sometimes reversed.
-  <img src="cars.gif" width="800"><br>
+  Test planes from ShapeNet. Notice failure cases in the bottom row where the orientation network fails to predict the correct orientation of a few planes with very unusual wing shapes. <br>
+  <img src="planes.gif" width="900"><br>
+  <h1>Cars</h1>
+  Test cars from ShapeNet. Notice failure cases on the bottom row: The second car is mostly black which is the same as the background. The third car looks very symmetric that the predicted orientation is sometimes reversed.<br>
+  <img src="cars.gif" width="900"><br>
+  <h1>Keypoint prediction from different views</h1>
+  A result with more viewing variation. This is frame-by-frame prediction with no temporal constraints.<br/>
+<img src="car_rotate.gif">
 </body>
 </html>
