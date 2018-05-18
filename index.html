@@ -3,24 +3,97 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1561.2">
+  <title>KeypointNet</title>
   <style type="text/css">
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial;
+    }
+
+    h1 {
+      font-size: 29px;
+      margin-top:50px;
+    }
+    h2 {
+      margin-top: 80px;
+      margin-bottom: 10px;
+      color: #FFCF43;
+      font-size: 30px;
+    }
+    
+    #content {
+      width: 1000px;
+      margin: auto;
+    }
+    td {
+      vertical-align: top;
+      text-align: center;
+    }
+    .desc {
+      color: #888888;
+      font-size: small;
+    }
+    .center {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h1>Chairs</h1>
+<div id="content">
+  <h1>
+    <span style="color:#888888">Supplementary Material:</span><br>
+  Discovery of Latent 3D Keypoints via End-to-end Geometric Reasoning
+  </h1>
+  <h2>Keypoint prediction from any angles</h2>
+  Results with more viewing variations (Supplement to Figure 3 in the paper). This is frame-by-frame prediction with no temporal constraints.<br/>
+  <span class="center"><img src="html_files/plane_spin.gif" width="180"><img src="html_files/chair_spin.gif" width="180"><img src="html_files/car_spin.gif" width="180"></span>
+  <h2>Chairs</h2>
   Test chairs from ShapeNet. This is a frame-by-frame keypoint prediction on each animation frame. No temporal information is used.<br>
-  <img src="chairs.gif" width="900"><br>
-  <h1>Planes</h1>
+  We show how the network is able to utilize the same keypoints across object instances and consistently predict keypoints across viewing angles, even when parts are occluded such as the back legs.
+<video width="900" loop autoplay muted>
+  <source src="html_files/chairs.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+  <h2>Planes</h2>
   Test planes from ShapeNet. Notice failure cases in the bottom row where the orientation network fails to predict the correct orientation of a few planes with very unusual wing shapes. <br>
-  <img src="planes.gif" width="900"><br>
-  <h1>Cars</h1>
+<video width="900" loop autoplay muted>
+  <source src="html_files/planes.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+  <h2>Cars</h2>
   Test cars from ShapeNet. Notice failure cases on the bottom row: The second car is mostly black which is the same as the background. The third car looks very symmetric that the predicted orientation is sometimes reversed.<br>
-  <img src="cars.gif" width="900"><br>
-  <h1>Keypoint prediction from different views</h1>
-  A result with more viewing variation. This is frame-by-frame prediction with no temporal constraints.<br/>
-<img src="car_rotate.gif">
+<video width="900" loop autoplay muted>
+  <source src="html_files/cars.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+  <h2>Ablation Study</h2>
+  We present an ablation study for the primary losses as well as how their weights affect the results.<br>
+  <table>
+    <tr>
+      <td><img src="html_files/ab_base.gif" width="180"><br>Baseline (12 keypoints)</td>
+      <td><img src="html_files/ab_closs0.gif" width="180"><br>No multiview consistency<br><span class="desc">Notice how points are no longer stationary.</span></td>
+      <td><img src="html_files/ab_peloss0.gif" width="180"><br>No relative pose loss<br><span class="desc">Points are concentrated at the center, but are still separated from separation loss</span></td>
+      <td><img src="html_files/ab_noise0.2.gif" width="180"><br>More noise in relative pose loss<br><span class="desc">This encourages points to be more robust to estimation error by spreading them out further.</span></td>
+      <!--<td><img src="html_files/ab_noise0.gif" width="180"><br>No noise<br><span class="desc">Notice how points are no longer stationary.</span></td>-->
+      <td><img src="html_files/ab_oncar.gif" width="180"><br>No silhouette loss<br><span class="desc">This causes the points to lie outside the car.</span></td>
+    </tr>
+</table>
+<h2>Varying number of keypoints</h2>
+We trained the network with varying number of keypoints [3, 5, 8, 10, 15, 20]. The network starts by discovering the most prominent components such as the head and wings, then gradually tracks more parts as the number increases. Colors do not correspond across results as they're independent. <br>
+<img src="./planekps/anim.gif" width="165"><img src="./planekps/anim(1).gif" width="165"><img src="./planekps/anim(2).gif" width="165"><img src="./planekps/anim(3).gif" width="165"><img src="./planekps/anim(4).gif" width="165"><img src="./planekps/anim(5).gif" width="165">
+  <h2>Results on deformed object</h2>
+  To evaluate the robustness of these keypoints under shape variations, and whether the network uses local features to detect local parts as opposed to placing keypoints on a regular rigid structure, we test our network on a non-rigidly deformed car. Here the network is able to predict where the wheels are and the overall deformation of the car structure.<br>
+  <span class="center"><img src="html_files/expand.gif" width="180"><img src="html_files/wig1.gif" width="180"><img src="html_files/wig2.gif" width="180"></span>
+  <h2>3D Visualization of keypoints</h2>
+  We visualize the positions of predicted 3D keypoints by projecting them back the 3D mesh. Below we show 
+  <br><br>
+<video width="1000" loop autoplay muted>
+  <source src="html_files/vis3d.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
 </body>
 </html>
