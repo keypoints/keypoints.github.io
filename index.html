@@ -88,7 +88,9 @@ We trained the network with varying number of keypoints [3, 5, 8, 10, 15, 20]. T
   To evaluate the robustness of these keypoints under shape variations, and whether the network uses local features to detect local parts as opposed to placing keypoints on a regular rigid structure, we test our network on a non-rigidly deformed car. Here the network is able to predict where the wheels are and the overall deformation of the car structure.<br>
   <span class="center"><img src="html_files/expand.gif" width="180"><img src="html_files/wig1.gif" width="180"><img src="html_files/wig2.gif" width="180"></span>
   <h2>3D Visualization of keypoints</h2>
-  We visualize the positions of predicted 3D keypoints by projecting them back the 3D mesh. Below we show 
+  We visualize the positions of the predicted 3D keypoints by projecting them back the 3D mesh of the following car. We show results for all 120 frames used to generate the animation. The frustrum indicates the camera's direction. (Our algorithm never has access to the 3D and take as input a single image. This is only for visualization.) <br>
+  <span class="center"><img src="html_files/car_none.gif" width="180"></span><br>
+  
   <br><br>
 <video width="1000" loop autoplay muted>
   <source src="html_files/vis3d.mp4" type="video/mp4">
