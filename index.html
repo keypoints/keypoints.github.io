@@ -16,7 +16,7 @@
       margin-top:50px;
     }
     h2 {
-      margin-top: 80px;
+      margin-top: 120px;
       margin-bottom: 10px;
       color: #FFCF43;
       font-size: 30px;
@@ -96,6 +96,11 @@ We trained the network with varying number of keypoints [3, 5, 8, 10, 15, 20]. T
   <source src="html_files/vis3d.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+  <h2>Proof-of-concept results on real images</h2>
+  We train our network by adding random backgrounds to our rendered training examples. Surprisingly, such a simple modification allows the network to predict keypoints on some of the Imagenet's cars. We show a few hand-picked results and some failure modes on the right. The network especially has difficulties dealing with large perspective distortion and cars that have strong patterns or specular highlights.<br><br>
+  <span class="center"><img src="html_files/realresults2.png" width="1000"></span><br>
+  <br><br>
 </div>
 </body>
 </html>
